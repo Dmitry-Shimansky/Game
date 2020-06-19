@@ -4,6 +4,12 @@ let isNumber = function(n){
     return !isNaN(parseFloat(n)) && isFinite(n)
 };
 
+function getRandomInlusive(min,max){
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min +1)) + min;
+}
+
 let result = confirm('Вас приветствует игра "Загадывание случайного числа от 1 до 100"');
 
 if (result) {
@@ -11,7 +17,8 @@ if (result) {
 }
 
 function game(){
-    let guessNumber = 15;
+    let guessNumber = getRandomInlusive(1,100);
+    console.log(guessNumber);
 
     check();
 
@@ -35,8 +42,9 @@ function game(){
            alert('Введите число!');
         } 
         if(number!=guessNumber) {
-            
             check ();
+        } else {
+            alert ('Вы угадали ! Ваш приз ААААААвтомобиль ! Лада под калиной');
         }
     
     }
